@@ -240,42 +240,40 @@ class FipIconContainer extends React.PureComponent {
 		if (this.state.totalPage < 1) {
 			return null;
 		}
-		const left =
-			this.props.currentPage > 0 ? (
+		const left = (
+			<span
+				className="rfipicons__left"
+				role="button"
+				tabIndex={0}
+				onKeyDown={event => this.handlePageKeyBoard(event, 'prev')}
+				onClick={event => this.handleChangePage(event, 'prev')}
+			>
 				<span
-					className="rfipicons__left"
-					role="button"
-					tabIndex={0}
-					onKeyDown={event => this.handlePageKeyBoard(event, 'prev')}
-					onClick={event => this.handleChangePage(event, 'prev')}
+					role="presentation"
+					className="rfipicons__label"
+					aria-label="Left"
 				>
-					<span
-						role="presentation"
-						className="rfipicons__label"
-						aria-label="Left"
-					>
-						<i className="fipicon-angle-left" />
-					</span>
+					<i className="fipicon-angle-left" />
 				</span>
-			) : null;
-		const right =
-			this.props.currentPage < this.state.totalPage - 1 ? (
+			</span>
+		);
+		const right = (
+			<span
+				className="rfipicons__right"
+				role="button"
+				tabIndex={0}
+				onKeyDown={event => this.handlePageKeyBoard(event, 'next')}
+				onClick={event => this.handleChangePage(event, 'next')}
+			>
 				<span
-					className="rfipicons__right"
-					role="button"
-					tabIndex={0}
-					onKeyDown={event => this.handlePageKeyBoard(event, 'next')}
-					onClick={event => this.handleChangePage(event, 'next')}
+					role="presentation"
+					className="rfipicons__label"
+					aria-label="Right"
 				>
-					<span
-						role="presentation"
-						className="rfipicons__label"
-						aria-label="Right"
-					>
-						<i className="fipicon-angle-right" />
-					</span>
+					<i className="fipicon-angle-right" />
 				</span>
-			) : null;
+			</span>
+		);
 		return (
 			<div className="rfipicons__pager">
 				<div className="rfipicons__num">
